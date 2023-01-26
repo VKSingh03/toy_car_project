@@ -1,0 +1,25 @@
+controller_joint_names: ['', 'AFR', 'WFR', 'AFL', 'WFL', 'WRR', 'WRL', ]
+toy_car2:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  joint1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "AFR"
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "AFL"
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint3_position_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: "WRR"
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint4_position_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: "WRL"
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
